@@ -45,5 +45,8 @@
     <Image Include="MANHOLE REMAKE.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\MANHOLE REMAKE (1) - Copy.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

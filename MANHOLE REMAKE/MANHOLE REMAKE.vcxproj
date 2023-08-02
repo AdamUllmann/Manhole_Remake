@@ -154,6 +154,7 @@
     <ResourceCompile Include="MANHOLE REMAKE.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\MANHOLE REMAKE (1) - Copy.ico" />
     <Image Include="MANHOLE REMAKE.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
