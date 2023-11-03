@@ -1,7 +1,5 @@
 # Manhole Remake
 
-![Manhole Logo](assets/ICON.png)
-
 **Manhole Remake** is a simple C++ game project that serves as a foundation for creating interactive scenes with click-based transitions. This README provides an overview of the project structure, key features, and how to get started.
 
 ## Overview
