@@ -13,12 +13,8 @@ enum class Scene {
     SCENE_1,
     SCENE_2,
     // add more scenes as needed
-    // MINIGAME_1,
-    // MINIGAME_2,
-    // ...
 };
 
-// a struct to hold all scene data (assets, click boxes, etc.)
 struct ClickBox {
     Rectangle originalBounds;
     Scene targetScene;
@@ -42,7 +38,6 @@ struct SceneData {
     // more scene-specific data as needed
 };
 
-// a function to handle scene transitions
 void ChangeScene(Scene& currentScene, Scene nextScene) {
     currentScene = nextScene;
 }
@@ -110,7 +105,7 @@ int main(void)
                 false                                   //  is it a minigame scene?
             }
         }
-        // add other assets and data for scene 1, such as sound effects, animations, etc.
+        // add other assets and data 
     };
 
     // Scene 2
@@ -118,16 +113,16 @@ int main(void)
         LoadTexture("assets/testRenders/03.png"),
         {
             {
-                Rectangle{ 0.1, 0.1, 0.2, 0.2 }, // defines click boxes
-                Scene::MAIN_MENU,                         //  clicking here leads to a target scene
-                LoadSound("path/to/sound_effect.wav"),  //  clicking here plays a sound
-                false                                   //  is it a minigame scene?
+                Rectangle{ 0.1, 0.1, 0.2, 0.2 }, 
+                Scene::MAIN_MENU,                        
+                LoadSound("path/to/sound_effect.wav"),  
+                false                                  
             }
         }
-        // Add other assets and data for scene 2, such as sound effects, animations, etc.
+        // Add other assets and data
     };
 
-    // Load data for other scenes here
+    // load data for other scenes here
 
 
 
@@ -137,7 +132,7 @@ int main(void)
     while (!WindowShouldClose()) {
         // Update
 
-        // Input handling
+        // input handling
         if (currentScene == Scene::MAIN_MENU) {
             // handle clicks in the main menu
             if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -154,11 +149,7 @@ int main(void)
                 for (const ClickBox& clickBox : currentSceneData.clickBoxes) {
                     if (CheckCollisionPointRec(mousePos, clickBox.bounds)) {
 
-                        
-                        // perform actions related to the clicked box in the current scene
-                        // playSound(currentSceneData.sound);
-                        // changeScene(currentScene, nextScene);
-                        // trigger animations or open minigames here
+                
 
 
                     // play sound effect, if defined for this click box
@@ -197,7 +188,7 @@ int main(void)
         if (currentScene != Scene::MAIN_MENU) {
             SceneData& currentSceneData = sceneData[currentScene];
             DrawTexture(currentSceneData.image, 0, 0, WHITE);
-            // Draw sprites in the current scene
+
             for (const Sprite& sprite : currentSceneData.sprites) {
                 DrawTexture(sprite.texture, sprite.position.x, sprite.position.y, WHITE);
             }
@@ -213,7 +204,6 @@ int main(void)
     }
     for (auto& scene : sceneData) {             // unload & deallocate
         UnloadTexture(scene.second.image);
-        // unload other scene-specific assets here
     }
 
     // de-initialization & end
